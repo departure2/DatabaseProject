@@ -7,12 +7,12 @@
 ## 사용한 언어 및 라이브러리
 
 1. 사용한 언어: python
-2. 사용한 라이브러리:
-import psycopg2
-import sys
-import time
-from datetime import datetime
-from prettytable import PrettyTable
+2. 사용한 라이브러리:  
+import psycopg2  
+import sys  
+import time  
+from datetime import datetime  
+from prettytable import PrettyTable  
 
 ------------
 
