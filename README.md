@@ -17,11 +17,15 @@ from prettytable import PrettyTable
 ------------
 
 ## 프로그램 실행
+  
+Repository 내의 "DBProject_201624587.exe" 파일 실행  
 
-Repository 내의 "DBTermProject_201624587.py" 파일 실행
+## 프로그램 코드 확인
+  
+Repository 내의 "DBProject_201624587.py" 파일에서 확인  
 
 ## 프로그램 매뉴얼
-
+  
 Repository 내의 "project program manual_201624587.docx" 파일에서 확인
 
 ------------
