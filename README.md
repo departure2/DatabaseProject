@@ -70,7 +70,7 @@ Repository 내의 "project program manual_201624587.docx" 파일에서 확인
 
 ## 기능(Functions)
 
-1. 만성질환자(Patient)
+### 1. 만성질환자(Patient)
   1) 회원 가입  
     - 앓고 있는 질환, 복용 중인 약 정보 등을 포함하여 정보를 입력함으로써 회원가입한다.  
     - 만성질환자 뿐만이 아닌 모든 이용자들에 대해 같은 아이디, (이름, 전화번호)쌍 등이 중복되지 않도록 구현했다.  
@@ -104,7 +104,7 @@ Repository 내의 "project program manual_201624587.docx" 파일에서 확인
     - 상담 요청이나 기사 요청이 되어있는 경우, 해당 요청들의 존재를 알린다. 그래도 회원 탈퇴에 동의한다면 예약된 상담들을 ‘Unoccupied’ 상태로 변경하고, 기사 요청들을 삭제한다.  
     - UPDATE, DELETE 등을 통해 정보를 변경, 삭제한다.  
   
-2. 건강상담사(Counselor)  
+### 2. 건강상담사(Counselor)  
   1) 회원 가입  
     - 건강상담사 뿐만이 아닌 모든 이용자들에 대해 같은 아이디, (이름, 전화번호)쌍 등이 중복되지 않도록 구현했다.  
     - INSERT INTO ~ VALUES를 이용해 테이블에 새로운 정보를 추가한다.  
@@ -124,7 +124,7 @@ Repository 내의 "project program manual_201624587.docx" 파일에서 확인
     - 작성한 상담 테이블이 존재하는 경우, 해당 테이블의 존재를 알린다. 그 래도 회원 탈퇴에 동의한다면 자신의 상담 테이블을 모두 삭제한다.  
     - DELETE를 통해 정보를 삭제한다.  
   
-3. 기자(Journalist)  
+### 3. 기자(Journalist)  
   1) 기사 링크 작성 / 작성한 기사 링크 조회 및 삭제  
     - 자신의 기사에 대한 링크를 올리거나, 자신이 작성한 기사 링크를 조회하고, 삭제할 수 있다.  
     - 환자가 자신에게 요청한 title과 동일한 title의 기사를 작성하면, 해당 환자에게 알림이 전송된다.  
@@ -147,7 +147,8 @@ Repository 내의 "project program manual_201624587.docx" 파일에서 확인
 
 ## 데이터베이스 스키마 및 다이어그램
 
-1. Patient 관련 스키마  
+### 1. Patient 관련 스키마  
+```
 patient (  
     p_id INT PRIMARY KEY,  
     id VARCHAR(12) UNIQUE,  
@@ -175,9 +176,11 @@ notification (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
     message VARCHAR(255),  
     FOREIGN KEY (p_id) REFERENCES patient(p_id)  
-)  
+)
+```
   
-2. Counselor 관련 스키마  
+### 2. Counselor 관련 스키마  
+```
 counselor (  
     c_id INT PRIMARY KEY,  
     id VARCHAR(12) UNIQUE,  
@@ -197,9 +200,11 @@ counsel_table (
     p_id INT,  
     FOREIGN KEY (c_name, c_phonenumber) REFERENCES counselor(name, phonenumber),  
     FOREIGN KEY (p_ID) REFERENCES patient(p_ID)  
-)  
+)
+``` 
   
-3. Journalist 관련 스키마  
+### 3. Journalist 관련 스키마  
+```
 journalist (  
     j_id INT PRIMARY KEY,  
     id VARCHAR(12) UNIQUE,  
@@ -225,4 +230,5 @@ requested_writing (
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
     FOREIGN KEY (requesting_nickname) REFERENCES patient(nickname),  
     FOREIGN KEY (j_id) REFERENCES journalist(j_id)  
-)  
+)
+```
