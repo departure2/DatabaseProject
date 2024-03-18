@@ -227,7 +227,7 @@ requested_writing (
     requesting_nickname VARCHAR(12),  
     requested_title VARCHAR(255),  
     j_id INT,  
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
     FOREIGN KEY (requesting_nickname) REFERENCES patient(nickname),  
     FOREIGN KEY (j_id) REFERENCES journalist(j_id)  
 )
